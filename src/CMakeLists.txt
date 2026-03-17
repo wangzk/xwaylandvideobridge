@@ -27,7 +27,6 @@ target_link_libraries(xwaylandvideobridge
     KF${QT_MAJOR_VERSION}::I18n
     KF${QT_MAJOR_VERSION}::CoreAddons
     KF${QT_MAJOR_VERSION}::WindowSystem
-    KF${QT_MAJOR_VERSION}::Crash
     Qt${QT_MAJOR_VERSION}::Quick
     Qt${QT_MAJOR_VERSION}::DBus
     Qt${QT_MAJOR_VERSION}::Widgets
