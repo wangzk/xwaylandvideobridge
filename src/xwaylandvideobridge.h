@@ -15,6 +15,8 @@ class QTimer;
 class ContentsWindow;
 class PipeWireSourceItem;
 
+class KStatusNotifierItem;
+
 struct Stream {
     uint nodeId;
     QVariantMap opts;
@@ -43,6 +45,8 @@ public:
     };
     Q_ENUM(SourceTypes);
 
+    void setDuration(int duration);
+
 public Q_SLOTS:
     void response(uint code, const QVariantMap& results);
 
@@ -61,4 +65,5 @@ private:
     QTimer *m_quitTimer;
     QScopedPointer<ContentsWindow> m_window;
     PipeWireSourceItem *m_pipeWireItem = nullptr;
+    KStatusNotifierItem *m_sni;
 };

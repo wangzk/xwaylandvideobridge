@@ -13,9 +13,8 @@
 #include <QCommandLineParser>
 #include <QSessionManager>
 #include <QIcon>
-
-#include <KAboutData>
 #include <KLocalizedString>
+#include <KAboutData>
 
 int main(int argc, char **argv)
 {
@@ -28,9 +27,7 @@ int main(int argc, char **argv)
     qputenv("QT_QPA_UPDATE_IDLE_TIME", "0");
     qputenv("QSG_RENDER_LOOP", "basic");
     QApplication app(argc, argv); // widgets are needed just for the SNI.
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
 
      auto disableSessionManagement = [](QSessionManager &sm) {
         sm.setRestartHint(QSessionManager::RestartNever);

@@ -5,9 +5,9 @@
 add_executable(xwaylandvideobridge)
 
 qt_add_dbus_interface(
-    XDP_SRCS
-    org.freedesktop.portal.ScreenCast.xml
-    xdp_dbus_screencast_interface
+   XDP_SRCS
+   org.freedesktop.portal.ScreenCast.xml
+   xdp_dbus_screencast_interface
 )
 
 ecm_qt_install_logging_categories(EXPORT XWAYLANDVIDEOBRIDGE FILE xwaylandvideobridge.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
@@ -15,9 +15,9 @@ ecm_qt_declare_logging_category(XDP_SRCS HEADER xwaylandvideobridge_debug.h IDEN
 
 target_sources(xwaylandvideobridge PRIVATE
     main.cpp
-    xwaylandvideobridge.cpp xwaylandvideobridge.h
-    contentswindow.cpp contentswindow.h
-    x11recordingnotifier.cpp x11recordingnotifier.h
+    xwaylandvideobridge.cpp
+    contentswindow.cpp
+    x11recordingnotifier.cpp
     ${XDP_SRCS}
 )
 
@@ -27,6 +27,7 @@ target_link_libraries(xwaylandvideobridge
     KF${QT_MAJOR_VERSION}::I18n
     KF${QT_MAJOR_VERSION}::CoreAddons
     KF${QT_MAJOR_VERSION}::WindowSystem
+    KF${QT_MAJOR_VERSION}::Notifications
     Qt${QT_MAJOR_VERSION}::Quick
     Qt${QT_MAJOR_VERSION}::DBus
     Qt${QT_MAJOR_VERSION}::Widgets
@@ -36,9 +37,9 @@ target_link_libraries(xwaylandvideobridge
     XCB::RECORD
 )
 
-if(QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(xwaylandvideobridge Qt6::GuiPrivate)
-elseif(QT_MAJOR_VERSION STREQUAL "5")
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(xwaylandvideobridge Qt6::GuiPrivate KF6::StatusNotifierItem)
+elseif (QT_MAJOR_VERSION STREQUAL "5")
     target_link_libraries(xwaylandvideobridge Qt5::X11Extras)
 endif()
 

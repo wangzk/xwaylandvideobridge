@@ -6,12 +6,6 @@ SPDX-FileCopyrightText: 2023 Aleix Pol <aleixpol@kde.org>
 
 # XWayland Video Bridge
 
-# About This Repo
-
-This repo stores the fixed version for this tool to compile on the recent openSUSE Tumbleweed (by 2026-03-15).
-
-The fix follows the guide on [AUR](https://aur.archlinux.org/packages/xwaylandvideobridge) by vargalott.
-
 # About
 
 By design, X11 applications can't access window or screen contents for wayland clients. This is fine in principle, but it breaks screen sharing in tools like Discord, MS Teams, Skype, etc and more.
